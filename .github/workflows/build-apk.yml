@@ -26,6 +26,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Create Capacitor Config
+        run: |
+          echo '{
+            "appId": "com.tacticalmanager.app",
+            "appName": "Tactical Manager 2026",
+            "webDir": "public",
+            "bundledWebRuntime": false
+          }' > capacitor.config.json
+
       - name: Install Capacitor CLI & Android
         run: |
           npm install @capacitor/core @capacitor/cli @capacitor/android
