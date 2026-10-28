@@ -26,8 +26,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Add Android Platform
-        run: npx cap add android || true
+      - name: Initialize Capacitor Android
+        run: |
+          npx cap init TacticalManager com.tacticalmanager.app --web-dir public || true
+          npx cap add android
 
       - name: Sync Capacitor
         run: npx cap sync android
